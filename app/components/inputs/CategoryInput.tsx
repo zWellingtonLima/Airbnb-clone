@@ -24,7 +24,9 @@ const CategoryInput: FC<CategoryInputProps> = ({
       }`}
     >
       <Icon size={30} />
-      <div></div>
+      <div className='font-semibold'>
+        {label}
+      </div>
     </div>
   );
 };
