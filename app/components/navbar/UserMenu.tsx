@@ -8,7 +8,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import useRentModal from "@/app/hooks/useRentModal copy";
+import useRentModal from "@/app/hooks/useRentModal";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
