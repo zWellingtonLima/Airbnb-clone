@@ -70,8 +70,8 @@ const ListingClient: FC<ListingClientProps> = ({
       .then(() => {
         toast.success("Listing reserved!");
         setDateRange(initialDateRange);
-        // redirect to /trips
-        router.refresh();
+
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("Something went wront.");
@@ -83,12 +83,15 @@ const ListingClient: FC<ListingClientProps> = ({
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
-      const dayCount = differenceInCalendarDays(dateRange.endDate, dateRange.startDate);
+      const dayCount = differenceInCalendarDays(
+        dateRange.endDate,
+        dateRange.startDate
+      );
 
       if (dayCount && listing.price) {
         setTotalPrice(dayCount * listing.price);
       } else {
-        setTotalPrice(listing.price)
+        setTotalPrice(listing.price);
       }
     }
   }, [dateRange, listing.price]);
@@ -118,8 +121,8 @@ const ListingClient: FC<ListingClientProps> = ({
               bathroomCount={listing.bathroomCount}
               locationValue={listing.locationValue}
             />
-            <div className='order-first mb-10 md:order-last md:col-span-3'>
-              <ListingReservation 
+            <div className="order-first mb-10 md:order-last md:col-span-3">
+              <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
